@@ -1,0 +1,101 @@
+[
+    {
+        "Product_id": 1,
+        "title": "Model-S",
+        "original-price": 2200.95,
+        "resale-price": 1800.95,
+        "sellerName": "Elon",
+        "Location": "NewYork",
+        "Phone": 12345789,
+        "uses": "1year",
+        "time": "03:05",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Tesla",
+        "image": "https://ibb.co/g9p1ShK"
+        
+      },
+
+
+      {
+        "Product_id": 2,
+        "title": "Model-X",
+        "original-price": 3388.90,
+        "resale-price": 2800.00,
+        "sellerName": "Musk",
+        "Location": "Atlanta",
+        "Phone": 12345789,
+        "uses": "2year",
+        "time": "04:05",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Tesla",
+        "image": "https://ibb.co/SJLstgh"
+      },
+      {
+        "Product_id": 3,
+        "title": "AVENTADOR",
+        "original-price": 9388.90,
+        "resale-price": 7500.00,
+        "sellerName": "captain Laven",
+        "Location": "Torento",
+        "Phone": 12345789,
+        "uses": "1.5year",
+        "time": "02:35",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Lamborghini",
+        "image": "https://ibb.co/nL6T7Mn"
+      },
+
+      {
+        "Product_id": 4,
+        "title": "HURACÁN",
+        "original-price": 7388.85,
+        "resale-price": 5500.00,
+        "sellerName": "Spider",
+        "Location": "Luxembourg",
+        "Phone": 12345789,
+        "uses": "2year",
+        "time": "04:05",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Lamborghini",
+        "image": "https://ibb.co/DWXDHxn"
+      },
+
+      {
+        "Product_id": 5,
+        "title": "e-tron-GT-quattro",
+        "original-price":  104000.42,
+        "resale-price": 88007.00,
+        "sellerName": "Amelia",
+        "Location": "London",
+        "Phone": 12345789,
+        "uses": "3year",
+        "time": "04:05",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Audi",
+        "image": "https://ibb.co/sKJpPKy",
+        "rating": {
+          "rate": 5,
+          "count": 120
+        }
+      },
+      {
+        "Product_id": 6,
+        "title": "e-tron-GT",
+        "original-price":  104500.00,
+        "resale-price": 74500.00,
+        "sellerName": "Spider",
+        "Location": "Atlanta",
+        "Phone": 12345789,
+        "uses": "1year",
+        "time": "03:50",
+        "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
+        "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
+        "category": "Audi",
+        "image": "https://ibb.co/F0n2ZXR"
+      }
+]

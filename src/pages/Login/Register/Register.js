@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import login from '../../../asset/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Lottie from 'lottie-web';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useToken from '../../../hooks/useToken';
 const Register = () => {
       //animation
       const container =useRef(null);
@@ -22,30 +23,55 @@ const Register = () => {
       },[])
       //form
       const { register, handleSubmit, formState: { errors } } = useForm();
-      const { createUser, updateUser,providerLogin } = useContext(AuthContext);
-      const googleProvider = new GoogleAuthProvider();
-      const [signUpError, setSignUPError] = useState('')
-      const handleSignUp = (data) => {
-          console.log(data);
-          setSignUPError('');
-          createUser(data.email, data.password)
-              .then(result => {
-                  const user = result.user;
-                  console.log(user);
-                  toast('User Created Successfully.')
-                  const userInfo = {
-                      displayName: data.name
-                  }
-                  updateUser(userInfo)
-                      .then(() => { })
-                      .catch(err => console.log(err));
-              })
-              .catch(error => {
-                  console.log(error)
-                  setSignUPError(error.message)
-              });
-      }
+    const { createUser, updateUser,providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const [signUpError, setSignUPError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail);
+    const navigate = useNavigate();
 
+    if(token){
+        navigate('/');
+    }
+
+    const handleSignUp = (data) => {
+        setSignUPError('');
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast('User Created Successfully.')
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(data.name, data.email);
+                    })
+                    .catch(err => console.log(err));
+            })
+            .catch(error => {
+                console.log(error)
+                setSignUPError(error.message)
+            });
+    }
+
+    const saveUser = (name, email) =>{
+        const user ={name, email};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            setCreatedUserEmail(email);
+        })
+    }
+
+      //google
       const handleGoogleSignIn=()=>{
         providerLogin(googleProvider)
         .then(result=>{
@@ -55,7 +81,9 @@ const Register = () => {
         .catch(error=>console.error(error));
   
     }
-  
+
+
+    
  
     return (
         <div className='hero w-full my-20'>
@@ -95,7 +123,7 @@ const Register = () => {
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
-                <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
+                <p>Already have an account ?<Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
                 <button className='btn btn-outline w-full' onClick={handleGoogleSignIn}>CONTINUE WITH GOOGLE</button>
 

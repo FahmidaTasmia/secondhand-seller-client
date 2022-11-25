@@ -7,6 +7,7 @@ import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider.js';
 import PrimaryButton from '../../../components/Primarybutton/Primarybutton';
+import useToken from '../../../hooks/useToken';
 
 
 
@@ -28,36 +29,36 @@ const Login = () => {
     },[])
     //form
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [loginError, setLoginError] = useState('');
-    const{signIn}=useContext(AuthContext);
-    const {providerLogin}=useContext(AuthContext);
+    const { signIn,providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const [loginError, setLoginError] = useState('');
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
+    const location = useLocation();
     const navigate = useNavigate();
-    const location =useLocation();
+
     const from = location.state?.from?.pathname || '/';
 
-    const handleLogin = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email,password);
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
-        signIn(email, password)
+    const handleLogin = data => {
+        console.log(data);
+        setLoginError('');
+        signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
-                setLoginError('');
-                navigate(from, {replace:true});
+                setLoginUserEmail(data.email);
             })
             .catch(error => {
-                console.error(error)
+                console.log(error.message)
                 setLoginError(error.message);
-            })
-           
+            });
     }
 
+    //google
     const handleGoogleSignIn=()=>{
       providerLogin(googleProvider)
       .then(result=>{
