@@ -3,9 +3,10 @@ import login from '../../../asset/login.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Lottie from 'lottie-web';
-
+import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider.js';
+import PrimaryButton from '../../../components/Primarybutton/Primarybutton';
 
 
 
@@ -100,14 +101,16 @@ const Login = () => {
                         <label className="label"> <span className="label-text">Forget Password?</span></label>
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
-                    <input className='btn btn-accent w-full' value="Login" type="submit" />
+                    <input className='btn btn-primary text-white font-bold w-full' value="Login" type="submit" />
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p>New to Doctors Portal <Link className='text-secondary' to="/register">Create new Account</Link></p>
+                <p>New to Cmart ?<Link className='text-secondary' to="/register">Please <span className='text-primary font-bold'>Create new Account</span></Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full' onClick={handleGoogleSignIn}>CONTINUE WITH GOOGLE</button>
+                <button className='btn btn-outline w-full hover:bg-primary hover:border-none gap-2' onClick={handleGoogleSignIn}><FaGoogle></FaGoogle>CONTINUE WITH GOOGLE</button>
+
+              
             </div>
             </div>
            

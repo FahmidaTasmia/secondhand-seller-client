@@ -42,7 +42,7 @@ const Footer = () => {
      <footer className="footer footer-center p-4 text-base-content border-t-2 bg-gray-100">
           
   <div className='text-gray-600 '>
-    <p>Copyright © 2022 - All right reserved by iDot</p>
+    <p>Copyright © 2022 - All right reserved by Cmart</p>
   </div>
 </footer>
         </div>
