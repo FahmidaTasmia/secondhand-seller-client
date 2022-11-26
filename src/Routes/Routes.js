@@ -3,6 +3,7 @@ import Home from "../pages/Homes/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import Prouct from "../pages/Prouct/Prouct";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/category/:id',
-                element:<Prouct></Prouct>,
+                element:<PrivateRoute><Prouct></Prouct></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/allProduct/${params.id}`)
             },
 
