@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import login from '../../../asset/login.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { FaGoogle } from "react-icons/fa";
 import Lottie from 'lottie-web';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
@@ -35,6 +36,8 @@ const Register = () => {
     }
 
     const handleSignUp = (data) => {
+        
+        console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
@@ -56,8 +59,9 @@ const Register = () => {
             });
     }
 
-    const saveUser = (name, email) =>{
-        const user ={name, email};
+    const saveUser = (name, email, value) =>{
+    //    console.log(saveUser);
+        const user ={name, email,value};
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -67,6 +71,7 @@ const Register = () => {
         })
         .then(res => res.json())
         .then(data =>{
+            console.log(data);
             setCreatedUserEmail(email);
         })
     }
@@ -120,12 +125,25 @@ const Register = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
-                    <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
+
+                    <div className='form-control grid self-center'>
+                    <label >before submit select who you are!</label>
+                    <select {...register("select", { required: "required*" })} className="select select-bordered select-sm mt-2">
+                            <option value="seller">Seller</option>
+                            <option value="User">User</option>
+            
+                     </select>
+                    </div>
+                    <input className='btn btn-primary text-white font-bold w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
+
+                    
+
+
                 </form>
                 <p>Already have an account ?<Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full' onClick={handleGoogleSignIn}>CONTINUE WITH GOOGLE</button>
+                <button className='btn btn-outline w-full hover:bg-primary hover:border-none gap-2' onClick={handleGoogleSignIn}><FaGoogle></FaGoogle>CONTINUE WITH GOOGLE</button>
 
             </div>
             </div>

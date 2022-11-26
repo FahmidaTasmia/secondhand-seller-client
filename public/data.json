@@ -1,6 +1,6 @@
 [
     {
-        "Product_id": 1,
+        "categoryId": "63811e35cb166d1d56582efd",
         "title": "Model-S",
         "original-price": 2200.95,
         "resale-price": 1800.95,
@@ -18,7 +18,7 @@
 
 
       {
-        "Product_id": 2,
+        "categoryId": "63811e35cb166d1d56582efd",
         "title": "Model-X",
         "original-price": 3388.90,
         "resale-price": 2800.00,
@@ -33,7 +33,7 @@
         "image": "https://ibb.co/SJLstgh"
       },
       {
-        "Product_id": 3,
+        "categoryId":"63811e35cb166d1d56582efe",
         "title": "AVENTADOR",
         "original-price": 9388.90,
         "resale-price": 7500.00,
@@ -41,15 +41,17 @@
         "Location": "Torento",
         "Phone": 12345789,
         "uses": "1.5year",
-        "time": "02:35",
+        "tim": "02:35",
         "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
         "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
         "category": "Lamborghini",
-        "image": "https://ibb.co/nL6T7Mn"
+        "image": "https://ibb.co/nL6T7Mn",
+        "advertiseEnable": "false",
+        "quality":"Good"
       },
 
       {
-        "Product_id": 4,
+        "categoryId":"63811e35cb166d1d56582efe",
         "title": "HURACÁN",
         "original-price": 7388.85,
         "resale-price": 5500.00,
@@ -65,7 +67,7 @@
       },
 
       {
-        "Product_id": 5,
+        "categoryId":"63811e35cb166d1d56582eff",
         "title": "e-tron-GT-quattro",
         "original-price":  104000.42,
         "resale-price": 88007.00,
@@ -77,14 +79,10 @@
         "description": "A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.",
         "description1": "With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too.",
         "category": "Audi",
-        "image": "https://ibb.co/sKJpPKy",
-        "rating": {
-          "rate": 5,
-          "count": 120
-        }
+        "image": "https://ibb.co/sKJpPKy"
       },
       {
-        "Product_id": 6,
+        "categoryId":"63811e35cb166d1d56582eff",
         "title": "e-tron-GT",
         "original-price":  104500.00,
         "resale-price": 74500.00,
