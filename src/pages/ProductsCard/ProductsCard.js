@@ -2,6 +2,7 @@ import React from 'react';
 
 const ProductsCard = ({product,setBooking}) => {
     const{sellerName,originalPrice,resalePrice,uses,title,description,image}=product;
+    
     return (
         <div className="card bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
@@ -17,7 +18,7 @@ const ProductsCard = ({product,setBooking}) => {
    
     <div className="card-actions">
     
-      <label htmlFor="booking-modal" className="btn btn-primary text-white font-bold" onClick={()=>setBooking()}>Book now</label>
+      <label htmlFor="booking-modal" className="btn btn-primary text-white font-bold" onClick={()=>setBooking(product)}>Book now</label>
     </div>
   </div>
 </div>

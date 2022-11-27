@@ -6,6 +6,7 @@ import ProductsCard from '../ProductsCard/ProductsCard';
 const Prouct = () => {
     const allProducts = useLoaderData();
    const[booking,setBooking]=useState(null);
+  
     return (
        <div>
          <div className='grid md:grid-cols-2 gap-8 '>
@@ -22,14 +23,13 @@ const Prouct = () => {
 
         </div>
 
-        {
-            booking &&
-            <BookingModal
-            booking={booking}
-            >
-    
-            </BookingModal>
-        }
+      {
+        booking &&
+        <BookingModal
+        booking={booking}
+        setBooking={setBooking}
+        ></BookingModal>
+      }
        </div>
         
     );
