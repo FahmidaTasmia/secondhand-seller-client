@@ -4,7 +4,7 @@ import PrimaryButton from '../../components/Primarybutton/Primarybutton';
 
 const CategoryCard = ({category}) => {
     const{name,image,_id}=category;
-    console.log(category);
+    // console.log(category);
     return (
         <div className="card w-96 bg-base-100 shadow-xl image-full">
  <figure><img src={image} alt="Shoes" /></figure>

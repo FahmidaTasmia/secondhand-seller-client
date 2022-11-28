@@ -1,8 +1,13 @@
 
+import DashboardLayout from "../Layout/DashboardLayout";
+import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
+import AllUser from "../pages/DashBoard/AllUsers/AllUser";
+import MyOrder from "../pages/DashBoard/MyOrder/MyOrder";
 import Home from "../pages/Homes/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import Prouct from "../pages/Prouct/Prouct";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -18,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>
+            },
+            {
+                path:'*',
+                element:<ErrorPage></ErrorPage>
             }
             ,
 
@@ -41,9 +50,25 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/allProduct/${params.id}`)
             },
 
+            ]
+    },
+
+    {
+        path:'/dashboard',
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children:[
             {
-                path:'*',
-                element:<ErrorPage></ErrorPage>
+                path:'/dashboard',
+                element:<MyOrder></MyOrder>
+            },
+            {
+                path:'/dashboard/allusers',
+                element:<AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+
+            {
+                path:'/dashboard/addseller',
+                element:<AdminRoute><AddSeller></AddSeller></AdminRoute>
             }
         ]
     }

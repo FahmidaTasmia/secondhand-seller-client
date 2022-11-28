@@ -31,25 +31,27 @@ const Register = () => {
     const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
-    if(token){
+   useEffect(()=>{
+     if(token){
         navigate('/');
     }
+   },[navigate, token])
 
     const handleSignUp = (data) => {
         
-        console.log(data);
+        // console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                // const user = result.user;
+                // // console.log(user);
                 toast('User Created Successfully.')
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email);
+                        saveUser(data.name, data.email, data.select);
                     })
                     .catch(err => console.log(err));
             })
@@ -60,8 +62,9 @@ const Register = () => {
     }
 
     const saveUser = (name, email, value) =>{
-    //    console.log(saveUser);
+   
         const user ={name, email,value};
+        console.log(user);
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
