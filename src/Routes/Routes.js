@@ -2,6 +2,7 @@
 import DashboardLayout from "../Layout/DashboardLayout";
 import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
+import MangeSeller from "../pages/DashBoard/ManageSeller/MangeSeller";
 import MyOrder from "../pages/DashBoard/MyOrder/MyOrder";
 import Home from "../pages/Homes/Home/Home";
 import Login from "../pages/Login/Login/Login";
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/addseller',
                 element:<AdminRoute><AddSeller></AddSeller></AdminRoute>
+            },
+            {
+                path:'/dashboard/managesellers',
+                element:<AdminRoute><MangeSeller></MangeSeller></AdminRoute>
             }
         ]
     }

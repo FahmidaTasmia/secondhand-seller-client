@@ -1,13 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import {  useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 
 const AddSeller = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-
+    const navigate = useNavigate();
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
+console.log('imagekey:',imageHostKey);
     const { data: newSellers, isLoading } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
@@ -18,7 +21,41 @@ const AddSeller = () => {
     })
 
     const handleASeller = data=>{
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgData => {
+            if(imgData.success){
+                console.log(imgData.data.url);
+                const sellerInfo = {
+                    name: data.name, 
+                    email: data.email,
+                    status: data.seller,
+                    image: imgData.data.url
+                }
+                fetch('http://localhost:5000/newseller', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json', 
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    },
+                    body: JSON.stringify(sellerInfo)
+                })
+                .then(res => res.json())
+                .then(result =>{
+                    console.log(result);
+                    toast.success(`${data.name} is added successfully`);
+                    navigate('/dashboard/managesellers')
+                })
 
+            }
+        })
     }
 
     if(isLoading){
@@ -26,7 +63,7 @@ const AddSeller = () => {
     }
     return (
         <div className='w-96 p-7 grid mx-auto md:my-12 lg:my-24 my-5  shadow-lg rounded-md'>
-            <h2>hello</h2>
+            <h2 className='text-primary text-center font-bold text-lg my-3'>Add A New Seller</h2>
 
             <form onSubmit={handleSubmit(handleASeller)}>
                 <div className="form-control w-full max-w-xs">
