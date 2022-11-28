@@ -4,6 +4,7 @@ import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 import MangeSeller from "../pages/DashBoard/ManageSeller/MangeSeller";
 import MyOrder from "../pages/DashBoard/MyOrder/MyOrder";
+import Payment from "../pages/DashBoard/Payment/Payment";
 import Home from "../pages/Homes/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
@@ -74,7 +75,12 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/managesellers',
                 element:<AdminRoute><MangeSeller></MangeSeller></AdminRoute>
-            }
+            },
+            {
+                path:'/dashboard/payment/:id',
+                element:<AdminRoute><Payment></Payment></AdminRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            },
         ]
     }
 ])
