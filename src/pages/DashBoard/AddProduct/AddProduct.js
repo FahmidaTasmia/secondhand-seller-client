@@ -1,20 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import {  useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
-const AddSeller = () => {
-
+const AddProduct = () => {
+    const {user} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 // console.log('imagekey:',imageHostKey);
-    const { data: newSellers, isLoading } = useQuery({
+    const { data: category, isLoading } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers');
+            const res = await fetch('http://localhost:5000/category');
             const data = await res.json();
             return data;
         }
@@ -33,19 +34,27 @@ const AddSeller = () => {
         .then(imgData => {
             if(imgData.success){
                 console.log(imgData.data.url);
-                const sellerInfo = {
-                    name: data.name, 
-                    email: data.email,
-                    status: data.seller,
-                    image: imgData.data.url
-                }
-                fetch('http://localhost:5000/newseller', {
+                const addProduct = {
+                    productName: data.name,
+                    originalPrice: data.originalprice,
+                    sellingPrice: data.resaleprice,
+                    location: data.location,
+                    email: user.email,
+                    usesTime: data.purchase,
+        
+                    categoriesId: data.category,
+                    shortDescription: data.message,
+                    sellerName: user.displayName,
+                    images1: imgData.data.url,
+                    time: new Date(),
+                  };
+                fetch('http://localhost:5000/allProduct', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json', 
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     },
-                    body: JSON.stringify(sellerInfo)
+                    body: JSON.stringify(addProduct)
                 })
                 .then(res => res.json())
                 .then(result =>{
@@ -86,7 +95,7 @@ const AddSeller = () => {
                     {...register('status')}
                     className="select input-bordered w-full max-w-xs">
                         {
-                            newSellers?.map(seller => <option
+                           category?.map(seller => <option
                                 key={seller._id}
                                 value={seller.value}
                             >{seller.value}</option>)
@@ -108,4 +117,4 @@ const AddSeller = () => {
     );
 };
 
-export default AddSeller;
+export default AddProduct;

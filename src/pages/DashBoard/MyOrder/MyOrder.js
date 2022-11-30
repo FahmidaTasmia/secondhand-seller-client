@@ -21,6 +21,9 @@ const MyOrder = () => {
         }
         
     })
+
+
+    
   
     
     return (
@@ -65,7 +68,7 @@ const MyOrder = () => {
           }
 
           {
-            booking.price && booking.paid && <span className='text-green-500'>Sold</span>
+            booking.resalePrice && booking.paid && <span className='btn bg-green-500 text-white hover:bg-green-500'>Paid</span>
           }
           </td>
        

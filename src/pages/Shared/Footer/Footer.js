@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaGoogle, FaTwitter, FaLinkedin } from "react-icons/fa";
-import car from '../../../asset/sport-car.png'
+
 
 const Footer = () => {
     return (

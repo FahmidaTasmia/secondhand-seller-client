@@ -1,5 +1,7 @@
 
 import DashboardLayout from "../Layout/DashboardLayout";
+import AddProduct from "../pages/DashBoard/AddProduct/AddProduct";
+
 import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 import MangeSeller from "../pages/DashBoard/ManageSeller/MangeSeller";
@@ -11,6 +13,7 @@ import Register from "../pages/Login/Register/Register";
 import Prouct from "../pages/Prouct/Prouct";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import SellerRoute from "./SellerRoute/SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -21,16 +24,13 @@ const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
                 element:<Home></Home>
             },
-            {
-                path:'*',
-                element:<ErrorPage></ErrorPage>
-            }
-            ,
+            
 
             {
                 path:'/login',
@@ -46,6 +46,9 @@ const router = createBrowserRouter([
                 path:'/blog',
                 element:<Blog></Blog>
             },
+
+           
+
             {
                 path:'/category/:id',
                 element:<PrivateRoute><Prouct></Prouct></PrivateRoute>,
@@ -80,6 +83,11 @@ const router = createBrowserRouter([
                 path:'/dashboard/payment/:id',
                 element:<AdminRoute><Payment></Payment></AdminRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            },
+
+            {
+                path:'/dashboard/addproduct',
+                element:<AdminRoute><AddProduct></AddProduct></AdminRoute>
             },
         ]
     }

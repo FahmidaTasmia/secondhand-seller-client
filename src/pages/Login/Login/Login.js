@@ -6,7 +6,6 @@ import Lottie from 'lottie-web';
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider.js';
-import PrimaryButton from '../../../components/Primarybutton/Primarybutton';
 import useToken from '../../../hooks/useToken';
 
 

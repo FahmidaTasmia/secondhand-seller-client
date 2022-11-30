@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
 import CategoryCard from '../CategoryCard/CategoryCard';
 
 

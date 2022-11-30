@@ -12,11 +12,12 @@ const Header = () => {
             .then(() => { })
             .catch(err => console.log(err));
     }
-
+   
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/order">Order</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+        <li><Link to="/addproduct">Add product</Link></li>
      
         {user?.uid ?
             <>
@@ -27,7 +28,7 @@ const Header = () => {
     </React.Fragment>
 
     return (
-        <div className="navbar bg-primary text-white flex justify-between">
+        <div className="navbar  text-primary font-bold flex justify-between">
             <div className="navbar-start">
             <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,7 +38,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl"><span className='text-white font-bold'>Cmart</span></Link>
+                <Link to="/" className="btn btn-ghost normal-case text-xl"><span className=' font-bold text-2xl'>Cmart</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

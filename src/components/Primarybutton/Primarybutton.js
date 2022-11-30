@@ -3,8 +3,11 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 
 const PrimaryButton = ({children}) => {
     return (
-        <button 
+       <div>
+         <button 
         className="btn btn-outline gap-2 w-full  hover:bg-primary hover:border-none hover:font-bold  ">{children}<HiArrowNarrowRight></HiArrowNarrowRight></button>
+        
+       </div>
     );
 };
 

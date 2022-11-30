@@ -27,6 +27,7 @@ const DashboardLayout = () => {
                                 <li className='hover:bg-primary hover:text-white hover:rounded-lg' ><Link to="/dashboard/allusers">All Users</Link></li>
                                 <li className='hover:bg-primary hover:text-white hover:rounded-lg' ><Link to="/dashboard/addseller">Add A Seller</Link></li>
                                 <li className='hover:bg-primary hover:text-white hover:rounded-lg' ><Link to="/dashboard/managesellers">Manage Seller</Link></li>
+                                <li className='hover:bg-primary hover:text-white hover:rounded-lg' ><Link to="/dashboard/addproduct">Add Product</Link></li>
                           </>
                         }
                         
