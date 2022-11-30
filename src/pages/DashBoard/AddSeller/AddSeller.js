@@ -14,7 +14,7 @@ const AddSeller = () => {
     const { data: newSellers, isLoading } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers');
+            const res = await fetch('https://secondhand-seller-server.vercel.app/sellers');
             const data = await res.json();
             return data;
         }
@@ -39,7 +39,7 @@ const AddSeller = () => {
                     status: data.seller,
                     image: imgData.data.url
                 }
-                fetch('http://localhost:5000/newseller', {
+                fetch('https://secondhand-seller-server.vercel.app/newseller', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json', 

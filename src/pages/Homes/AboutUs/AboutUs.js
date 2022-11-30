@@ -5,7 +5,7 @@ import PrimaryButton from '../../../components/Primarybutton/Primarybutton';
 const AboutUs= () => {
     return (
         <div className="hero my-20">
-  <div className="grid grid-cols-2">
+  <div className="grid md:grid-cols-2 gap-5">
    
     <div className='mx-10'>
      <p className='text-2xl font-bold text-primary'>About Cmart</p>

@@ -15,9 +15,9 @@ const Footer = () => {
         <div >
           <span className="text-lg  uppercase  font-semibold">Company</span> 
           <Link className="link link-hover">Home</Link>
-          <Link className="link link-hover">Courses</Link>
+          <Link className="link link-hover">Dashboard</Link>
           <Link className="link link-hover">Blog</Link>
-          <Link className="link link-hover">Checkout</Link>
+          <Link className="link link-hover">About us</Link>
         </div> 
         <div className="divider \ lg:divider-horizontal"></div> 
         <div >

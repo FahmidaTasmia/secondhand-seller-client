@@ -7,6 +7,7 @@ import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 import MangeSeller from "../pages/DashBoard/ManageSeller/MangeSeller";
 import MyOrder from "../pages/DashBoard/MyOrder/MyOrder";
+import MyProduct from "../pages/DashBoard/MyProduct/Myproduct";
 import Payment from "../pages/DashBoard/Payment/Payment";
 import Home from "../pages/Homes/Home/Home";
 import Login from "../pages/Login/Login/Login";
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<PrivateRoute><Prouct></Prouct></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allProduct/${params.id}`)
+                loader: ({params}) => fetch(`https://secondhand-seller-server.vercel.app/allProduct/${params.id}`)
             },
 
             ]
@@ -83,12 +84,17 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element:<AdminRoute><Payment></Payment></AdminRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({params}) => fetch(`https://secondhand-seller-server.vercel.app/bookings/${params.id}`)
             },
 
             {
                 path:'/dashboard/addproduct',
-                element:<AdminRoute><AddProduct></AddProduct></AdminRoute>
+                element:<AddProduct></AddProduct>
+            },
+
+            {
+                path:'/dashboard/myproduct',
+                element:<MyProduct></MyProduct>
             },
         ]
     }

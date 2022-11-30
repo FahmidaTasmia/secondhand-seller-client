@@ -39,7 +39,7 @@ const Register = () => {
 
     const handleSignUp = (data) => {
         
-        // console.log(data);
+        console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
@@ -61,11 +61,11 @@ const Register = () => {
             });
     }
 
-    const saveUser = (name, email, value) =>{
+    const saveUser = (name, email, role) =>{
    
-        const user ={name, email,value};
+        const user ={name, email,role};
         console.log(user);
-        fetch('http://localhost:5000/users', {
+        fetch('https://secondhand-seller-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
