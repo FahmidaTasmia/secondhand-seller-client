@@ -1,5 +1,6 @@
 
 import DashboardLayout from "../Layout/DashboardLayout";
+import Blog from "../pages/Blog/Blog";
 import AddProduct from "../pages/DashBoard/AddProduct/AddProduct";
 
 import AddSeller from "../pages/DashBoard/AddSeller/AddSeller";
@@ -17,7 +18,7 @@ import SellerRoute from "./SellerRoute/SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
-const { default: Blog } = require("../pages/Blog/Blog");
+
 const { default: ErrorPage } = require("../pages/ErrorPage/ErrorPage");
 
 const router = createBrowserRouter([
