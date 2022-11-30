@@ -17,8 +17,8 @@ const Testimonial = () => {
        <div className='my-8 p-12 shadow-sm'>
 
             <div className='text-center '>
-                <h3 className='text-primary text-2xl font-bold'>What Our Customers are SAying</h3>
-                <h3 className=' text-lg '>Read The Valuable Words</h3>
+            <h3 className=' text-4xl text-primary font-sans font-bold my-3'>What Our Customers are SAying</h3>
+                <h3 className=' text-2xl '>Read The Valuable Words We get From Our beloved Customers</h3>
             </div>
 
         <>
@@ -40,7 +40,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
@@ -75,7 +75,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
@@ -110,7 +110,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
@@ -145,7 +145,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
@@ -180,7 +180,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
@@ -215,7 +215,7 @@ const Testimonial = () => {
                 <div className="flex space-x-4">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                     </div>
                   <div>
